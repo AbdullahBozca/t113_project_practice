@@ -115,7 +115,7 @@ public class Atm {
         if (eSifre.equals(sifre)) {
             System.out.print("YENİ ŞİFRE GİRİNİZ: ");
             sifre = scan.next();
-            scan.nextLine();
+            scan.nextLine();// dummy
             giris();
         } else {
             System.out.println("HATALI GİRİŞ YAPTINIZ...");
@@ -142,18 +142,20 @@ public class Atm {
                 System.out.println("GÖNDERMEK İSTEDİĞİNİZ TUTARA SAHİP DEĞİLSİNİZ...");
                 bakiyeSorgula();
             }
+        }else {
+            System.out.println("HATALI İBAN GİRDİNİZ...");
+            paraGonderme();
         }
     }
 
     private static void paraCekme(double miktar) {
-        //Para çekme ve para gonderme işleminde mevcut bakiyeden buyuk para çekilemez
+        //Para çekme işleminde mevcut bakiyeden buyuk para çekilemez
         if (miktar <= bakiye) {
             bakiye -= miktar;
             bakiyeSorgula();
         } else {
             System.out.println("ÇEKMEK İSTEDİĞİNİZ TUTARA SAHİP DEĞİLSİNİZ...");
             bakiyeSorgula();
-
         }
     }
 
